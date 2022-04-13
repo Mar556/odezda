@@ -7,7 +7,7 @@ package odezda;
 
 import entity.Pants;
 import entity.Tishka;
-import entity.User;
+import entity.User1;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -26,22 +26,22 @@ public class Odezda {
     public static void main(String[] args) {
         List<Tishka> shmot = new ArrayList<>();
         List<Pants> shmot1 = new ArrayList<>();
-        List<User> username = new ArrayList<>();
+        List<User1> username = new ArrayList<>();
         int n =0;
         while(n==0){
         Scanner scan = new Scanner(System.in);
-        System.out.print("\nВыберите пункт меню: "
-                + "\n1. Добавить пользователя."
+        System.out.print("\n1. Добавить пользователя."
                 + "\n2. Добавить тишку."
                 + "\n3. Добавить штанцы."
                 + "\n4. Вывод."
                 + "\n5. Покупка."
                 + "\n6. Выход."
+                + "\nВыберите пункт меню: "
                  );
         int vibor = scan.nextInt(); scan.nextLine();
         switch(vibor){
             case 1:
-                User user = new User();
+                User1 user1 = new User1();
                 System.out.print("Имя: ");
                 String nameName = scan.nextLine();
                 System.out.print("Фамилия: ");
@@ -50,16 +50,16 @@ public class Odezda {
                 String namePhone = scan.nextLine();
                 System.out.print("Баланс: ");
                 int nameBalance = scan.nextInt(); scan.nextLine();
-                user.setName(nameName);
-                user.setSurname(nameSurname);
-                user.setPhone(namePhone);
-                user.setBalance(nameBalance);
+                user1.setName(nameName);
+                user1.setSurname(nameSurname);
+                user1.setPhone(namePhone);
+                user1.setBalance(nameBalance);
                 System.out.printf("Вы добавили пользователя - %s %s, с номером телефона - %s, с балансом %d.\n",
-                    user.getName(),
-                    user.getSurname(),
-                    user.getPhone(),
-                    user.getBalance()); 
-                username.add(user);
+                    user1.getName(),
+                    user1.getSurname(),
+                    user1.getPhone(),
+                    user1.getBalance()); 
+                username.add(user1);
                 break;  
             case 2:
                 Tishka tishka = new Tishka();
@@ -113,7 +113,7 @@ public class Odezda {
                 if (vivod == 1) {
                     
                     for (int i = 0; i < shmot.size(); i++) {
-                    System.out.printf("%d. %s %s, size: %d, price: %s\n", 
+                    System.out.printf("В наличии есть: %d. %s %s, размер: %d, с ценой: %s\n", 
                     i+1,
                     shmot.get(i).getFirm(), 
                     shmot.get(i).getColor(),
@@ -122,29 +122,77 @@ public class Odezda {
                             );
                 }
                 if (vivod == 2) {
-                    System.out.println("\n"+shmot);
+                                       
+                    for (int i = 0; i < shmot1.size(); i++) {
+                    System.out.printf("В наличии есть: %d. %s %s, размер: %d, с ценой: %s\n", 
+                    i+1,
+                    shmot1.get(i).getFirm2(), 
+                    shmot1.get(i).getColor2(),
+                    shmot1.get(i).getSize2(),
+                    shmot1.get(i).getPrice2()
+                            );
                 }
-                else;
-                System.out.println("\n"+shmot1);
-                }
-            case 5:
-                System.out.print("1.Тишка."
-                        + "2.Штаны."
-                        + "Выберите что хотите купить: ");
-                int choice = scan.nextInt();
-                if (choice == 1) {
-                    System.out.println("В наличии есть:");
-                  System.out.println("1.Да "
-                            + "2.Нет "
-                            + "Будете совершать покупку?");
-                }
-                if (choice == 2) {
-                    System.out.println("В наличии есть"+shmot1);
-                    System.out.println("1.Да "
-                            + "2.Нет "
-                            + "Будете совершать покупку?");
                 }
                 
+                }
+                break;
+            case 5:
+                System.out.print("1.Тишка"
+                        + "\n2.Штаны"
+                        + "\nВыберите что хотите купить: ");
+                int choice = scan.nextInt();
+                switch (choice) {
+                    case 1:
+                    
+                    for (int i = 0; i < shmot.size(); i++) {
+                    System.out.printf("В наличии есть: %d. %s %s, размер: %d, с ценой: %s\n", 
+                    i+1,
+                    shmot.get(i).getFirm(), 
+                    shmot.get(i).getColor(),
+                    shmot.get(i).getSize(),
+                    shmot.get(i).getPrice()
+                            );
+                 
+                    System.out.println("1.Да "
+                            + "\n2.Нет "
+                            + "\nБудете совершать покупку?");
+                }
+                    break;
+                    case 2:
+                    
+                                        for (int i = 0; i < shmot.size(); i++) {
+                    System.out.printf("В наличии есть: %d. %s %s, размер: %s, с ценой: %s\n", 
+                    i+1,
+                    shmot1.get(i).getFirm2(), 
+                    shmot1.get(i).getColor2(),
+                    shmot1.get(i).getSize2(),
+                    shmot1.get(i).getPrice2()
+                            );
+                    System.out.println("1.Да "
+                            + "\n2.Нет "
+                            + "\nБудете совершать покупку? ");
+                    int pokupka = scan.nextInt();scan.nextLine();
+                    if (pokupka == 1) {
+                        
+                            System.out.println(username);
+                            System.out.println("Какой аккаунт ваш? ");
+                            int acc = scan.nextInt();
+                            if(acc == 1){
+                                for (int b = 0; b < username.size(); b++)
+                                    for (int c = 0; c < username.size(); c++ )
+                                System.out.println(username.get(b));
+                            }
+                            
+                            System.out.printf("У вас на балансе: %d.",
+                                    username.get(0).getBalance());
+
+                            
+                    }    
+                    
+                }
+                }
+                
+                break;
             case 6:
                 n++;
                 System.out.println("ВЫХОД");

@@ -9,7 +9,7 @@ package entity;
  *
  * @author mark-
  */
-public class User {
+public class User1 {
     private String name;
     private String surname;
     private String phone;

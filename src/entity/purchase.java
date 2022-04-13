@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author mark-
  */
 public class purchase {
-    private User user; 
+    private User1 user; 
     private Pants pants;
     private Tishka tishka;
     private Date date;
@@ -60,11 +60,11 @@ public class purchase {
         return "purchase{" + "user=" + user + ", pants=" + pants + ", tishka=" + tishka + ", date=" + date + '}';
     }
 
-    public User getUser() {
+    public User1 getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(User1 user) {
         this.user = user;
     }
 
